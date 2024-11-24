@@ -1,22 +1,22 @@
-title: example.com
-description: "Satellite - jekyll blog theme"
+title: "슬픈 안드로이드"
+description: "우리 앞에 있는 모든 시련들 겁낼 필요 없다"
 logo_img: "/assets/img/favicon.webp"
-profile_img: "/assets/img/profile.webp"
+profile_img: "/assets/img/profile.jpg"
 
 # Social Links
-email: example@gmail.com
-github_username: github
-twitter_username: twitter
-instagram_username: instagram
-linkedin_username: linkedin
-facebook_username: facebook
+email: "tnwlsgk1002@gmail.com"
+github_username: "tnwlsgk1002"
+# twitter_username: "twitter"
+# instagram_username: "instagram"
+linkedin_username: "수진-이-35bb57207"
+# facebook_username: "facebook"
 
 # External API
-giscus_repo: "byanko55/jekyll-theme-satellite"
-giscus_repoId: "R_kgDOJ6fqWg"
-giscus_category: "Q&A"
-giscus_categoryId: "DIC_kwDOJ6fqWs4Cc7p7"
-goatcounter_code: byanko77
+data-repo: "tnwlsgk1002/tnwlsgk1002.github.io"
+data-repo-id: "R_kgDONT9Ftw"
+data-category: "Q&A"
+data-category-id: "DIC_kwDONT9Ft84Ckjpo"
+goatcounter_code: "tnwlsgk1002githubioblog"
 google_analytics:
 
 # If your repo name follows the format "<user-name>.github.io", then leave the below blank.
@@ -47,7 +47,7 @@ defaults:
       layout: "page"
       date: "1900-01-01"
 
-# Markdown newline activator 
+# Markdown newline activator
 kramdown:
   input: GFM
   hard_wrap: true
