@@ -123,6 +123,16 @@
         
     
 
+        
+    
+
+        
+    
+
+        
+    
+            
+
     
     
     
@@ -135,6 +145,34 @@
                     <span>Books</span>
                 </a>
 </div>
+</li>
+<li id="nav-first" aria-label="Dev">
+            <div class="nav-item">
+                <a href="/Dev/" class="nav-list-link nav-lh">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128h95.1l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H347.1L325.8 320H384c17.7 0 32 14.3 32 32s-14.3 32-32 32H315.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7H155.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l21.3-128H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320h95.1l21.3-128H187.1z"></path></svg>
+                    <span>Dev</span>
+                </a><button class="nav-list-expander" aria-label="toggle items in Dev category" aria-pressed="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
+                </button>
+</div>
+<ul class="nav-list">
+<li id="nav-second" aria-label="Log">
+                    <div class="nav-item">
+                        <a href="/Dev/Log/" class="nav-list-link nav-sh">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path></svg>
+                            <span>Log</span>
+                        </a>
+</div>
+</li>
+<li id="nav-second" aria-label="Study">
+                    <div class="nav-item">
+                        <a href="/Dev/Study/" class="nav-list-link nav-sh">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path></svg>
+                            <span>Study</span>
+                        </a>
+</div>
+</li>
+</ul>
 </li>
 <li id="nav-first" aria-label="Home">
             <div class="nav-item">
@@ -215,15 +253,96 @@
 </h1>
 <div id="category-list">
     <ul class="paginated-list" data-current-page="1" aria-live="polite">
+        <li class="paginated-item">
+                <div id="article_content">
+                    <div class="thumbnail_zone">
+                        
+                            <a href="/Dev/Log/PhotoPicker.html" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
+                        
+                    </div>
+                    <div class="box_contents">
+                        <a href="/Dev/Log/PhotoPicker.html"><h1 class="title_post">targetSDK34 대응하면서 정리한 PhotoPicker</h1></a>
+                        <a href="/Dev/Log/PhotoPicker.html" class="txt_post">
+                            전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.
+
+Photo Picker
+
+
+  The photo picker provides a browsable interface that presents the user with their media library (공식 문서)
+
+
+
+    
+
+
+  안드로이드에서 제공하는 사진 선택기.
+  단일 / 멀티 and 이미지 / 동영상 제공 하며, 권한 없이 미디어에 접근 가능
+  Photo Picker의 사용 조건
+    
+      Android 13 이상 이거나 혹은 Android 11 이상이면서 SDK R Extensions이 최소 2일 때
+      그 외에 ACTION_OPEN_DOCUMENT 등의 방식으로 내부에서 분기 처리
+    
+  
+
+
+
+
+
+
+  ✅ 나중에 알게된 사실, PhotoPicker가 일부 앨범만 표시되는 경우가 있다. 관련 이슈 트래커 링크
+
+
+PhotoPicker 외의 미디어 선택 방법
+
+
+  단순 미디어 선택이 필요한 경우 권한 없이 ACTION_OPEN_DOCUMENT이나 ACTION_PICK 를 사용하면 충분히 가능하다.
+    
+      이 경우 이미지, 동영상만이 아닌 pdf와 같은 파일에도 접근이 된다.
+          val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+      addCategory(Intent.CATEGORY_OPENABLE)
+      type = "application/pdf"
+
+      // Optionally, specify a URI for the file that should appear in the
+      // system file picker when it loads.
+      putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
+  }
+        
+      
+    
+  
+  만약 PhotoPicker 만으로 원하는 기능을 구현할 수 없거나 혹은 앱 디자인과 통일하고 싶은 경우 MediaStore에 직접 접근하여 커스텀 갤러리 구현이 필요하다.
+     * targetSDK34 부터 ‘선택한 사진에 대한 접근 권한’ 추가 -&gt; 접근 가능한 사진이 추가 가능하도록 기능 제공 필요
+     * 또한 추가로 유저가 얼마든지 권한을 ‘모두 허용’으로 바꾸게끔 UI를 제공하는 것도 좋다.
+    
+      관련 블로그 - Android 14에서 추가된 ‘사진/동영상의 일부 접근 권한’ 제대로 대응하는 방법
+    
+  
+
+
+
+
+                        </a>
+                        <div class="info-post">
+                                <a href="/Dev" class="category">Dev</a>
+                            
+                                <span class="date">· 2024-11-24</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
         </ul>
-    
-        <div class="no-posts">
-            <img src="/assets/img/sorry.png" loading="lazy">
-            <h1>Sorry, No posts found</h1>
-        </div>
     
 </div>
 <div class="pagination">
@@ -290,12 +409,56 @@
 
         posts.push({
             'title'    : "Index",
+            'path'     : "Dev > Log",
+            'type'     : "category",
+            'tags'     : "",
+            'url'      : "/Dev/Log/index.html",
+            'image'    : "/assets/img/thumbnail/empty.jpg",
+            'date'     : "1900-01-01"
+        });
+    
+
+        posts.push({
+            'title'    : "Index",
+            'path'     : "Dev > Study",
+            'type'     : "category",
+            'tags'     : "",
+            'url'      : "/Dev/Study/index.html",
+            'image'    : "/assets/img/thumbnail/empty.jpg",
+            'date'     : "1900-01-01"
+        });
+    
+
+        posts.push({
+            'title'    : "Index",
+            'path'     : "Dev",
+            'type'     : "category",
+            'tags'     : "",
+            'url'      : "/Dev/index.html",
+            'image'    : "/assets/img/thumbnail/empty.jpg",
+            'date'     : "1900-01-01"
+        });
+    
+
+        posts.push({
+            'title'    : "Index",
             'path'     : "",
             'type'     : "category",
             'tags'     : "",
             'url'      : "/index.html",
             'image'    : "/assets/img/thumbnail/empty.jpg",
             'date'     : "1900-01-01"
+        });
+    
+
+        posts.push({
+            'title'    : "targetSDK34 대응하면서 정리한 PhotoPicker",
+            'path'     : "Dev > Log",
+            'type'     : "post",
+            'tags'     : "android",
+            'url'      : "/Dev/Log/PhotoPicker.html",
+            'image'    : "/assets/img/thumbnail/empty.jpg",
+            'date'     : "2024-11-24"
         });
     
 
