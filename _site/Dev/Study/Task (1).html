@@ -7,25 +7,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
     
-        targetSDK34 대응하면서 정리한 PhotoPicker
+        Tasks and the back stack (1) : Task
     
 </title>
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>targetSDK34 대응하면서 정리한 PhotoPicker | 슬픈 안드로이드</title>
+<title>Tasks and the back stack (1) : Task | 슬픈 안드로이드</title>
 <meta name="generator" content="Jekyll v4.3.4">
-<meta property="og:title" content="targetSDK34 대응하면서 정리한 PhotoPicker">
+<meta property="og:title" content="Tasks and the back stack (1) : Task">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.">
-<meta property="og:description" content="전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.">
-<link rel="canonical" href="http://localhost:4000/Dev/Log/PhotoPicker.html">
-<meta property="og:url" content="http://localhost:4000/Dev/Log/PhotoPicker.html">
+<meta name="description" content="앱 내에서 화면 이동을 구현하다보면 Intent에서 Flag를 세팅해줄 일이 많이 생기는 것 같다. 아무래도 사이드 프로젝트에선 화면 진입이 대부분 한 군데인 것만 경험했는데, 실무에서는 푸시나 링크 등 진입점이 다양해지고, 중간에 쌓인 화면을 모두 꺼버리는 등 스택 관리가 중요시 하게 되어 이런 일들이 발생하는 듯하다. 작년 이맘때 쯤 이부분 헷갈려서 적어두었다가 이번 기회에 조금 더 정리해서 올려본당">
+<meta property="og:description" content="앱 내에서 화면 이동을 구현하다보면 Intent에서 Flag를 세팅해줄 일이 많이 생기는 것 같다. 아무래도 사이드 프로젝트에선 화면 진입이 대부분 한 군데인 것만 경험했는데, 실무에서는 푸시나 링크 등 진입점이 다양해지고, 중간에 쌓인 화면을 모두 꺼버리는 등 스택 관리가 중요시 하게 되어 이런 일들이 발생하는 듯하다. 작년 이맘때 쯤 이부분 헷갈려서 적어두었다가 이번 기회에 조금 더 정리해서 올려본당">
+<link rel="canonical" href="http://localhost:4000/Dev/Study/Task%20(1).html">
+<meta property="og:url" content="http://localhost:4000/Dev/Study/Task%20(1).html">
 <meta property="og:site_name" content="슬픈 안드로이드">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2024-11-24T00:00:00+09:00">
+<meta property="article:published_time" content="2024-11-27T00:00:00+09:00">
 <meta name="twitter:card" content="summary">
-<meta property="twitter:title" content="targetSDK34 대응하면서 정리한 PhotoPicker">
+<meta property="twitter:title" content="Tasks and the back stack (1) : Task">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-11-24T00:00:00+09:00","datePublished":"2024-11-24T00:00:00+09:00","description":"전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.","headline":"targetSDK34 대응하면서 정리한 PhotoPicker","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Dev/Log/PhotoPicker.html"},"url":"http://localhost:4000/Dev/Log/PhotoPicker.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-11-27T00:00:00+09:00","datePublished":"2024-11-27T00:00:00+09:00","description":"앱 내에서 화면 이동을 구현하다보면 Intent에서 Flag를 세팅해줄 일이 많이 생기는 것 같다. 아무래도 사이드 프로젝트에선 화면 진입이 대부분 한 군데인 것만 경험했는데, 실무에서는 푸시나 링크 등 진입점이 다양해지고, 중간에 쌓인 화면을 모두 꺼버리는 등 스택 관리가 중요시 하게 되어 이런 일들이 발생하는 듯하다. 작년 이맘때 쯤 이부분 헷갈려서 적어두었다가 이번 기회에 조금 더 정리해서 올려본당","headline":"Tasks and the back stack (1) : Task","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Dev/Study/Task%20(1).html"},"url":"http://localhost:4000/Dev/Study/Task%20(1).html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -271,11 +271,11 @@
                 &gt;
             <a href="/Dev/">Dev</a>
                 &gt;
-            <a href="/Dev/Log/">Log</a>
+            <a href="/Dev/Study/">Study</a>
                 &gt;
             
                 
-                    targetSDK34 대응하면서 정리한 PhotoPicker
+                    Tasks and the back stack (1) : Task
                 
             </p>
 </div>
@@ -284,7 +284,7 @@
     <div class="thumbnail">
         <div class="transbox">
             
-                <span class="post-title">targetSDK34 대응하면서 정리한 PhotoPicker</span>
+                <span class="post-title">Tasks and the back stack (1) : Task</span>
             
             <div class="post-info">
                 
@@ -296,7 +296,7 @@
                 <span class="info-box">
                     <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192h80v56H48V192zm0 104h80v64H48V296zm128 0h96v64H176V296zm144 0h80v64H320V296zm80-48H320V192h80v56zm0 160v40c0 8.8-7.2 16-16 16H320V408h80zm-128 0v56H176V408h96zm-144 0v56H64c-8.8 0-16-7.2-16-16V408h80zM272 248H176V192h96v56z"></path></svg>
                     <span>
-                            2024-11-24
+                            2024-11-27
                         
                     </span>
                 </span>
@@ -314,69 +314,76 @@
         </div>
     </div>
 </div>
-<div class="tag-box"><span class="tag theme-0" contentid="android">
-            android
+<div class="tag-box"><span class="tag theme-0" contentid="android, task">
+            android, task
         </span></div>
 <main>
-    <p>전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.</p>
+    <p>앱 내에서 화면 이동을 구현하다보면 Intent에서 Flag를 세팅해줄 일이 많이 생기는 것 같다.<br>
+아무래도 사이드 프로젝트에선 화면 진입이 대부분 한 군데인 것만 경험했는데, 실무에서는 푸시나 링크 등 진입점이 다양해지고, 중간에 쌓인 화면을 모두 꺼버리는 등 스택 관리가 중요시 하게 되어 이런 일들이 발생하는 듯하다.<br>
+작년 이맘때 쯤 이부분 헷갈려서 적어두었다가 이번 기회에 조금 더 정리해서 올려본당</p>
 
-<h1 id="photo-picker">Photo Picker</h1>
+<h1 id="task">Task</h1>
 <hr>
+<h2 id="task-">task ?</h2>
 <blockquote>
-  <p>The photo picker provides a browsable interface that presents the user with their media library <a href="https://developer.android.com/training/data-storage/shared/photopicker?hl=ko">(공식 문서)</a></p>
+  <p>A <strong>task</strong> is a collection of activities that users interact with when trying to do something in your app. (<a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack">링크</a>)</p>
 </blockquote>
 
-<div style="width: 50%;">
-    <img src="/assets/img/post/photopicker/kotlin-picker.gif" alt="PhotoPicker" style="width: 100%; height: auto;" loading="lazy">
-</div>
+<p><strong>📌 Task는 사용자 관점에서 Activity의 모음이다.</strong><br>
+예를 들어 이메일 앱에는 새 메시지 목록을 표시하는 Activity가 있으며,<br>
+사용자가 메시지를 선택하면 해당 메시지를 볼 수 있는 새 Activity가 열린다.<br>
+새로운 Activity는 <strong>백 스택</strong>에 추가되며, 뒤로가기를 하거나 종료하면 스택에서 제거가 된다.</p>
+
+<p><img src="https://velog.velcdn.com/images/bibbidi1819/post/a7cc4232-20e3-43f9-a4d7-5b015f8e4ff6/image.png" alt="" loading="lazy"></p>
+
+<h2 id="root-launcher-activities">root launcher activities</h2>
+<p>앱에서 처음 실행할 Activity의 경우 AndroidManifest.xml에 아래처럼 인텐트 필터를 <code class="language-plaintext highlighter-rouge">ACTION_MAIN</code>, <code class="language-plaintext highlighter-rouge">CATEGORY_LAUNCHER</code>로 선언한다.</p>
+
+<pre><code class="language-XML">&lt;activity
+          android:name=".feature.main.MainActivity"
+          android:exported="true"&gt;
+  &lt;intent-filter&gt;
+    &lt;action android:name="android.intent.action.MAIN" /&gt;
+
+    &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+  &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre>
+
+<p>이렇게 선언된 Activity는 곧 <strong>root launcher activity</strong>가 된다.<br>
+task의 root가 된다는 것이며, <br>
+이러한 root activity에서 백 버튼을 눌렀을 때 동작 과정은 os 별로 상이하다.</p>
 <ul>
-  <li>안드로이드에서 제공하는 사진 선택기.</li>
-  <li>단일 / 멀티 and 이미지 / 동영상 제공 하며, 권한 없이 미디어에 접근 가능</li>
-  <li>Photo Picker의 사용 조건
-    <ul>
-      <li>Android 13 이상 이거나 혹은 Android 11 이상이면서 <a href="https://developer.android.com/guide/sdk-extensions?hl=ko">SDK R Extensions</a>이 최소 2일 때</li>
-      <li>그 외에 <code class="language-plaintext highlighter-rouge">ACTION_OPEN_DOCUMENT</code> 등의 방식으로 내부에서 분기 처리</li>
-    </ul>
-  </li>
+  <li>android 11 이하 : 시스템이 activity를 종료 시킨다.</li>
+  <li>android 12 이상 : activity를 종료하는 대신, task를 background로 이동시킨다.</li>
 </ul>
 
-<p><img src="/assets/img/post/photopicker/create_intent.png" alt="내부코드1" title="PhotoPicker 내부 createIntent()" loading="lazy"><br>
-<img src="/assets/img/post/photopicker/is_system_picker_available.png" alt="내부코드2" title="PhotoPicker 내부 isSystemPickerAvailable()" loading="lazy"></p>
+<h2 id="background-및-foreground-task">background 및 foreground task</h2>
 
-<ul>
-  <li>✅ 나중에 알게된 사실, PhotoPicker가 일부 앨범만 표시되는 경우가 있다. <a href="https://issuetracker.google.com/issues/340582178?pli=1">관련 이슈 트래커 링크</a>
-</li>
-</ul>
+<p><img src="https://velog.velcdn.com/images/bibbidi1819/post/124d8ca1-4010-4f3c-9199-71df1b7b5a32/image.png" alt="" loading="lazy"></p>
 
-<h1 id="photopicker-외의-미디어-선택-방법">PhotoPicker 외의 미디어 선택 방법</h1>
+<p>Task는 하나의 응집된 작업 단위다.<br>
+만약 새 작업을 시작하거나, 새로운 앱을 열면 현재 Task는 Background로 이동하고, 현재 백스택을 그대로 유지하고 있다.</p>
+
+<p>그러다 다시 Background에서 Foreground로 돌아오면, 스택에서 가장 위에 있던 Activity가 활성화 되어 사용자는 마지막으로 보고 있던 화면에서 이어서 진행할 수 있는 것.</p>
+
+<h2 id="-tip-adb로-stack-확인하는-명령어">😎 tip. ADB로 stack 확인하는 명령어</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb shell dumpsys activity activities
+</code></pre></div></div>
+
+<h1 id="궁금증-풀기">궁금증 풀기</h1>
 <hr>
-<ol>
-  <li>단순 미디어 선택이 필요한 경우 권한 없이 <code class="language-plaintext highlighter-rouge">ACTION_OPEN_DOCUMENT</code>이나 <code class="language-plaintext highlighter-rouge">ACTION_PICK</code> 를 사용하면 충분히 가능하다.
-    <ul>
-      <li>이 경우 이미지, 동영상만이 아닌 pdf와 같은 파일에도 접근이 된다.
-        <div class="language-kotlin highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">intent</span> <span class="p">=</span> <span class="nc">Intent</span><span class="p">(</span><span class="nc">Intent</span><span class="p">.</span><span class="nc">ACTION_OPEN_DOCUMENT</span><span class="p">).</span><span class="nf">apply</span> <span class="p">{</span>
-      <span class="nf">addCategory</span><span class="p">(</span><span class="nc">Intent</span><span class="p">.</span><span class="nc">CATEGORY_OPENABLE</span><span class="p">)</span>
-      <span class="n">type</span> <span class="p">=</span> <span class="s">"application/pdf"</span>
+<h2 id="1-앱마다-task가-다른가-앱-안에서도-task가-다르게-선언될-수-있나">1. 앱마다 Task가 다른가? 앱 안에서도 Task가 다르게 선언될 수 있나?</h2>
+<p>기본적으로는 앱마다 task는 다르게 선언된다.<br>
+앱이 열리면, 기본적으로는 root launcher activity를 새로운 task에 추가하게 된다.<br>
+그러나 내가 임의로 어떤 Activity를 taskAffinity 속성을 사용해서 다른 앱의 task에 올라가게끔 선언이 가능하다. <br>
+-&gt; 이 부분은 직접 테스트 해보고 넣어볼 것.</p>
 
-      <span class="c1">// Optionally, specify a URI for the file that should appear in the</span>
-      <span class="c1">// system file picker when it loads.</span>
-      <span class="nf">putExtra</span><span class="p">(</span><span class="nc">DocumentsContract</span><span class="p">.</span><span class="nc">EXTRA_INITIAL_URI</span><span class="p">,</span> <span class="n">pickerInitialUri</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li>만약 PhotoPicker 만으로 원하는 기능을 구현할 수 없거나 혹은 앱 디자인과 통일하고 싶은 경우 MediaStore에 직접 접근하여 <strong>커스텀 갤러리</strong> 구현이 필요하다.<br>
-     * targetSDK34 부터 ‘선택한 사진에 대한 접근 권한’ 추가 -&gt; 접근 가능한 사진이 추가 가능하도록 기능 제공 필요<br>
-     * 또한 추가로 유저가 얼마든지 권한을 ‘모두 허용’으로 바꾸게끔 UI를 제공하는 것도 좋다.
-    <ul>
-      <li><a href="https://medium.com/%EB%B0%95%EC%83%81%EA%B6%8C%EC%9D%98-%EC%82%BD%EC%A7%88%EB%B8%94%EB%A1%9C%EA%B7%B8/android-14%EC%97%90%EC%84%9C-%EC%B6%94%EA%B0%80%EB%90%9C-%EC%82%AC%EC%A7%84-%EB%8F%99%EC%98%81%EC%83%81%EC%9D%98-%EC%9D%BC%EB%B6%80-%EC%A0%91%EA%B7%BC-%EA%B6%8C%ED%95%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EB%8C%80%EC%9D%91%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-0557db6c46d9">관련 블로그 - Android 14에서 추가된 ‘사진/동영상의 일부 접근 권한’ 제대로 대응하는 방법</a></li>
-    </ul>
-  </li>
-</ol>
+<p>앱 안에서 task 또한 위 속성을 사용하거나, Intent Flags 혹은 launchMode를 사용해서 제어가 가능하다.</p>
 
-<p><img src="/assets/img/post/photopicker/gallery_flow.png" alt="커스텀갤러리" title="갤러리 제공 플로우" loading="lazy"></p>
+<h2 id="2-멀티-윈도우로-있을-때에는-task는-어떻게-되는가">2. 멀티 윈도우로 있을 때에는 task는 어떻게 되는가?</h2>
+<p>시스템은 각 창별로 task를 따로 관리하게 된다. (<a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack#multi-window">참고</a>)</p>
+
 
     <!-- see https://giscus.app/ -->
     <div class="giscus" id="giscus" style="margin: 4rem auto;"></div>
