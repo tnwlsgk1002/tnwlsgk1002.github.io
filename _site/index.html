@@ -259,122 +259,6 @@
                 <div id="article_content">
                     <div class="thumbnail_zone">
                         
-                            <a href="/Dev/Log/Github%20Action%20CD.html" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
-                        
-                    </div>
-                    <div class="box_contents">
-                        <a href="/Dev/Log/Github%20Action%20CD.html"><h1 class="title_post">Github Action으로 Android Firebase App Distribution 배포 자동화 하기</h1></a>
-                        <a href="/Dev/Log/Github%20Action%20CD.html" class="txt_post">
-                            Github Action CD 도입을 위해 테스트 했던 내용 정리
-
-목표 : 테스트앱 배포 자동화
-
-
-매번 테스트 앱 배포할 때마다 배포하고 노티하는 번거로움을 CD로 해결해보자.
-
-  트리거가 발생하면 -&gt; Firebase App Distribution 배포
-  성공 시 Slack 채널에 알람
-
-
-name : App Build
-
-on : 
-    # 트리거 정의
-    
-job :
-    # APK 추출
-    # App Distrubution 업로드
-    # Slack 채널에 노티
-
-
-테스트
-
-최종 코드
-action.yaml
-
-
-
-
-
-
-
-./artifacts.json
-
-
-
-
-
-  📌 트리거 : release/, hotfix/ 브랜치에서 docs/release-note.txt 변경 시
-
-
-
-  배포 노트까지 로컬에서 써서 push만 하면 바로 배포가 되도록 설정
-  처음에는 트리거를 이슈로 하고 이슈 내용을 배포 노트로 해도 좋을 것 같아서 해봤는데, 배포할 브랜치 설정도 필요하고, 이슈 오픈하는 과정이나 이런 게 귀찮아서 최대한 단순하게 하는 게 좋을 것 같아 pass
-    
-      이슈 트리거로 했던 코드는 아래에 메모
-    
-  
-
-
-
-
-
-
-  📌 변수 설정
-
-
-
-
-
-
-  기본적으로 위와 같은 설정 해주었고 추가로 keystore 등 추가하면 된다.
-  FIREBASE_GROUPS는 파이어베이스 배포 그룹이었는데 간단히 바꿀 수 있게끔 하려고 var 로 뺐다.
-    
-      이 부분 그룹 ID 대충 해보려고 하다가 고생함..
-      그룹은 들어가서 파이어베이스 그룹 이름이 아니고 이름 옆에 표기된 걸로 해야 한다.
-      여러 개 그룹 넣을 경우에는 띄워쓰기 없이 아래처럼 해야한다.
-        
-          “그룹1,그룹2”
-        
-      
-      그룹 ID가 제대로 설정하지 않으면 아래와 같은 오류를 마주한다..
-        
-          HTTP Error: 404, Requested entity was not found.
-=&gt; 단 요건 github action 버전 마다 다를 수 있어서 주의 필요
-
-        
-      
-    
-  
-  CREDENTIAL_FILE_CONTENT의 경우는 해당 사이트 참고해서 발급받으면 된다.
-
-
-
-  📌 ./artifacts.json 으로 Slack 에 노티 시 템플릿 설정
-
-
-
-  Slack Kit Builder 에서 만들었음
-  payload-templated을 true로 해주고, payload-file-path를 위로 설정해주어야 되며, 처음에 json 파일에서 바로 변수 참조했다가 `???’ 로 뜨는 경우가 있었다… 요 이슈 참고해서 env로 설정해서 해결
-  추가로 release-note.txt 파일을 그냥 cat으로 읽으면 –&gt; 멀티 라인은 변수로 저장할 수 없어서 변수 저장할 때부터 오류, EOF로 바꾸면 형식을 artifacts.json에서 읽을 수 없다고 하기 때문에 json 이 읽을 수 있는 형식에 맞게 바꿔주었다.
-
-
-                        </a>
-                        <div class="info-post">
-                                <a href="/Dev" class="category">Dev</a>
-                            
-                                <span class="date">· 2024-12-17</span>
-                            
-                        </div>
-                    </div>
-                </div>
-            </li>
-        
-        
-        <li class="paginated-item">
-                <div id="article_content">
-                    <div class="thumbnail_zone">
-                        
                             <a href="/Dev/Study/Task%20(1).html" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
                         
                     </div>
@@ -540,6 +424,76 @@ PhotoPicker 외의 미디어 선택 방법
             </li>
         
         
+        <li class="paginated-item">
+                <div id="article_content">
+                    <div class="thumbnail_zone">
+                        
+                            <a href="/Dev/Log/minSdk,%20targetSdk,%20complieSdk.html" class="thumbnail_post empty" loading="lazy" aria-label="thumbnail_post" style="background-image:url('/assets/img/thumbnail/empty.jpg') !important"></a>
+                        
+                    </div>
+                    <div class="box_contents">
+                        <a href="/Dev/Log/minSdk,%20targetSdk,%20complieSdk.html"><h1 class="title_post">minSdk, targetSdk, complieSdk</h1></a>
+                        <a href="/Dev/Log/minSdk,%20targetSdk,%20complieSdk.html" class="txt_post">
+                            예전에 처음 회사에서 targetSdk34 대응할 때 적어두었던 글 백업!
+
+minSdk, targetSdk, complieSdk
+
+
+  minSdk : 애플리케이션을 실행하는데 필요한 최소 API 수준
+    - 만약 API 레벨이 이 속성에 지정된 값보다 낮은 경우 사용자는 애플리케이션을 설치할 수 없다.
+
+
+
+  targetSdk : 애플리케이션이 대상으로 하는 API 레벨
+    - 설정하지 않으면 기본 값은 minSdk 버전과 같다.
+    - targetSdk를 올리게 되면, 최소 sdk(즉 minSdk)에서 정의된 요소만 사용하도록 제한 X, API 수준에 정의된 매니페스트 요소 혹은 동작을 사용할 수 있다.
+
+
+
+  complieSdk : 컴파일 시 사용할 Android API 버전
+    - targetSdkVersion &lt;= complieSdkVersion
+	    - complieSdk를 올리면 지정 API로 컴파일 시 사용되고, targetSdk를 올리면 런타임 때 사용된다.
+	    - target API가 컴파일이 되지 않았는데 지원은 할 수 없기 때문에 그렇다.
+
+
+
+  API 레벨: Android 플랫폼 버전에서 제공하는 프레임워크 API 계정을 고유하게 식별하는 정수
+ 	- 각 플랫폼 버전은 정확히 하나의 api를 지원하지만, 모든 이전 API 레벨(API 레벨 1까지)에 대한 지원이 암시적으로 지원된다.
+
+
+targetSdk를 올릴 때에는 언제인가?
+
+
+  Android 버전이 높은 기기에서 최소 targetSdk가 있을 때
+    
+      예를 들면 Android 15에서는 targetSdk
+    
+  
+  Google Play 요구사항
+    
+      targetSdk34 때는 타겟팅이 되어야 신규 앱 등록 or 앱 업데이트가 가능했었다. (링크)
+    
+  
+  왜 올려야 할까?
+    
+      새로운 버전의 Sdk가 나오면, 보안과 성능이 개선된다.
+      일부는 이런 지원을 명시적으로 선언한 앱에서만 적용된다.
+    
+  
+
+
+                        </a>
+                        <div class="info-post">
+                                <a href="/Dev" class="category">Dev</a>
+                            
+                                <span class="date">· 2023-10-25</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+        
         
         
         
@@ -659,6 +613,17 @@ PhotoPicker 외의 미디어 선택 방법
     
 
         posts.push({
+            'title'    : "minSdk, targetSdk, complieSdk",
+            'path'     : "Dev > Log",
+            'type'     : "post",
+            'tags'     : "android",
+            'url'      : "/Dev/Log/minSdk,%20targetSdk,%20complieSdk.html",
+            'image'    : "/assets/img/thumbnail/empty.jpg",
+            'date'     : "2023-10-25"
+        });
+    
+
+        posts.push({
             'title'    : "targetSDK34 대응하면서 정리한 PhotoPicker",
             'path'     : "Dev > Log",
             'type'     : "post",
@@ -677,17 +642,6 @@ PhotoPicker 외의 미디어 선택 방법
             'url'      : "/Dev/Study/Task%20(1).html",
             'image'    : "/assets/img/thumbnail/empty.jpg",
             'date'     : "2024-11-27"
-        });
-    
-
-        posts.push({
-            'title'    : "Github Action으로 Android Firebase App Distribution 배포 자동화 하기",
-            'path'     : "Dev > Log",
-            'type'     : "post",
-            'tags'     : "android, git, ci/cd",
-            'url'      : "/Dev/Log/Github%20Action%20CD.html",
-            'image'    : "/assets/img/thumbnail/empty.jpg",
-            'date'     : "2024-12-17"
         });
     
 
