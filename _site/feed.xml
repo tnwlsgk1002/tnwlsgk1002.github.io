@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>SOO-LAB</title>
   <subtitle>안드로이드 개발자 기술 블로그</subtitle>
-  <updated>2025-03-07T13:18:32+09:00</updated>
+  <updated>2025-03-15T18:48:42+09:00</updated>
   <author>
     <name>Soon</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,196 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Github Action으로 Android Firebase App Distribution 배포 자동화 하기</title>
+    <link href="http://localhost:4000/posts/github-action-android-firebase-app-distribution/" rel="alternate" type="text/html" title="Github Action으로 Android Firebase App Distribution 배포 자동화 하기" />
+    <published>2024-12-17T00:00:00+09:00</published>
+  
+    <updated>2024-12-17T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/github-action-android-firebase-app-distribution/</id>
+    <content type="text/html" src="http://localhost:4000/posts/github-action-android-firebase-app-distribution/" />
+    <author>
+      <name>Soon</name>
+    </author>
+
+  
+    
+    <category term="log" />
+    
+  
+
+  <summary>목표 : 테스트앱 배포 자동화
+
+
+매번 테스트 앱 배포할 때마다 배포하고 노티하는 번거로움을 CD로 해결해보자.
+
+
+  트리거가 발생하면 -&amp;amp;gt; Firebase App Distribution 배포
+  성공 시 Slack 채널에 알람
+
+
+name : App Build
+
+on : 
+    # 트리거 정의
+    
+job :
+    # APK 추출
+    # App Distrubution 업로드
+    # Slack 채널에 노티
+
+
+테스트
+
+
+최종 코드
+action.yaml
+
+name: App-Distribution
+
+on:
+  push:
+    branches:
+      - release/** 
+      - hotfix/**
+    paths:
+      - docs/release-note.txt
+...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Tasks and the back stack : Task</title>
+    <link href="http://localhost:4000/posts/Tasks-and-the-back-stask-task/" rel="alternate" type="text/html" title="Tasks and the back stack : Task" />
+    <published>2024-11-27T00:00:00+09:00</published>
+  
+    <updated>2024-11-27T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/Tasks-and-the-back-stask-task/</id>
+    <content type="text/html" src="http://localhost:4000/posts/Tasks-and-the-back-stask-task/" />
+    <author>
+      <name>Soon</name>
+    </author>
+
+  
+    
+    <category term="log" />
+    
+  
+
+  <summary>앱 내에서 화면 이동을 구현하다보면 Intent에서 Flag를 세팅해줄 일이 많이 생기는 것 같다.
+
+아무래도 사이드 프로젝트에선 화면 진입이 대부분 한 군데인 것만 경험했는데, 실무에서는 푸시나 링크 등 진입점이 다양해지고, 중간에 쌓인 화면을 모두 꺼버리는 등 스택 관리가 중요시 하게 되어 이런 일들이 발생하는 듯하다.
+
+작년 이맘때 쯤 이부분 헷갈려서 적어두었다가 이번 기회에 조금 더 정리해서 올려본당
+
+Task
+task ?
+
+  A task is a collection of activities that users interact with when trying to do something in your app. (링크)
+
+
+📌 Task는 사용자 관점에서 Activity의 모음이다.
+
+예를 들어 이...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Photo Picker</title>
+    <link href="http://localhost:4000/posts/Photo-Picker/" rel="alternate" type="text/html" title="Photo Picker" />
+    <published>2024-11-24T00:00:00+09:00</published>
+  
+    <updated>2024-11-24T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/Photo-Picker/</id>
+    <content type="text/html" src="http://localhost:4000/posts/Photo-Picker/" />
+    <author>
+      <name>Soon</name>
+    </author>
+
+  
+    
+    <category term="log" />
+    
+  
+
+  <summary>전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.
+
+Photo Picker
+
+
+
+  The photo picker provides a browsable interface that presents the user with their media library (공식 문서)
+
+
+
+    
+
+
+  안드로이드에서 제공하는 사진 선택기.
+  단일 / 멀티 and 이미지 / 동영상 제공 하며, 권한 없이 미디어에 접근 가능
+  Photo Picker의 사용 조건
+    
+      Android 13 이상 이거나 혹은 Android 11 이상이면서 SDK R Extensions이 최소 2일 때
+      그 외에 ACTION_OPEN_DOCUMENT 등의 방식으로 내부에서 분기 처...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>minSdk, targetSdk, complieSdk</title>
+    <link href="http://localhost:4000/posts/minsdk-targetsdk-compliesdk/" rel="alternate" type="text/html" title="minSdk, targetSdk, complieSdk" />
+    <published>2023-10-25T00:00:00+09:00</published>
+  
+    <updated>2023-10-25T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/minsdk-targetsdk-compliesdk/</id>
+    <content type="text/html" src="http://localhost:4000/posts/minsdk-targetsdk-compliesdk/" />
+    <author>
+      <name>Soon</name>
+    </author>
+
+  
+    
+    <category term="log" />
+    
+  
+
+  <summary>회사에서 targetsdk34 대응 작업을 진행하게 되면서 정리한 글
+minSdk, targetSdk, complieSdk
+
+
+
+  minSdk : 애플리케이션을 실행하는데 필요한 최소 API 수준
+
+
+
+  만약 API 레벨이 이 속성에 지정된 값보다 낮은 경우 사용자는 애플리케이션을 설치할 수 없다.
+
+
+
+  targetSdk : 애플리케이션이 대상으로 하는 API 레벨
+
+
+
+  설정하지 않으면 기본 값은 minSdk 버전과 같다.
+  targetSdk를 올리게 되면, 최소 sdk(즉 minSdk)에서 정의된 요소만 사용하도록 제한 X, API 수준에 정의된 매니페스트 요소 혹은 동작을 사용할 수 있다.
+
+
+
+  complieSdk : 컴파일 시 사용할 Android API 버전
+
+
+
+  targe...</summary>
+
+  </entry>
 
   
   <entry>
@@ -45,88 +235,6 @@
 Generate the favicon
 
 Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Getting Started</title>
-    <link href="http://localhost:4000/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
-    <published>2019-08-09T21:55:00+09:00</published>
-  
-    <updated>2019-08-09T21:55:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/getting-started/</id>
-    <content type="text/html" src="http://localhost:4000/posts/getting-started/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  <summary>Get started with Chirpy basics in this comprehensive overview. You will learn how to install, configure, and use your first Chirpy-based website, as well as deploy it to a web server.</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Writing a New Post</title>
-    <link href="http://localhost:4000/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
-    <published>2019-08-08T15:10:00+09:00</published>
-  
-    <updated>2019-08-08T15:10:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/write-a-new-post/</id>
-    <content type="text/html" src="http://localhost:4000/posts/write-a-new-post/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  <summary>This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.
-
-Naming and Path
-
-Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Text and Typography</title>
-    <link href="http://localhost:4000/posts/text-and-typography/" rel="alternate" type="text/html" title="Text and Typography" />
-    <published>2019-08-08T12:33:00+09:00</published>
-  
-    <updated>2019-08-08T12:33:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/text-and-typography/</id>
-    <content type="text/html" src="http://localhost:4000/posts/text-and-typography/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Demo" />
-    
-  
-
-  <summary>Examples of text, typography, math equations, diagrams, flowcharts, pictures, videos, and more.</summary>
 
   </entry>
 

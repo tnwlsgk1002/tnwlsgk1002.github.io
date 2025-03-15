@@ -1,13 +1,14 @@
---- 
-title: "targetSDK34 대응하면서 정리한 PhotoPicker"
-date: "2024-11-24" 
-tags: 
-    - android
+---
+categories:
+- log
+tags:
+- android
+title: Photo Picker
 ---
 
 전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.
 
-# Photo Picker
+### Photo Picker
 ---
 >The photo picker provides a browsable interface that presents the user with their media library [(공식 문서)](https://developer.android.com/training/data-storage/shared/photopicker?hl=ko)
 
@@ -26,8 +27,7 @@ tags:
 * ✅ 나중에 알게된 사실, PhotoPicker가 일부 앨범만 표시되는 경우가 있다. [관련 이슈 트래커 링크](https://issuetracker.google.com/issues/340582178?pli=1)
 
 
-# PhotoPicker 외의 미디어 선택 방법
----
+### PhotoPicker 외의 미디어 선택 방법
 1. 단순 미디어 선택이 필요한 경우 권한 없이 `ACTION_OPEN_DOCUMENT`이나 `ACTION_PICK` 를 사용하면 충분히 가능하다.
     * 이 경우 이미지, 동영상만이 아닌 pdf와 같은 파일에도 접근이 된다.
     ```kotlin

@@ -30,22 +30,23 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Tutorial" />
+<meta property="og:title" content="minSdk, targetSdk, complieSdk" />
 <meta property="og:locale" content="ko_KR" />
-<meta name="description" content="안드로이드 개발자 기술 블로그" />
-<meta property="og:description" content="안드로이드 개발자 기술 블로그" />
-<link rel="canonical" href="http://localhost:4000/categories/tutorial/" />
-<meta property="og:url" content="http://localhost:4000/categories/tutorial/" />
+<meta name="description" content="회사에서 targetsdk34 대응 작업을 진행하게 되면서 정리한 글 minSdk, targetSdk, complieSdk" />
+<meta property="og:description" content="회사에서 targetsdk34 대응 작업을 진행하게 되면서 정리한 글 minSdk, targetSdk, complieSdk" />
+<link rel="canonical" href="http://localhost:4000/posts/minsdk-targetsdk-compliesdk/" />
+<meta property="og:url" content="http://localhost:4000/posts/minsdk-targetsdk-compliesdk/" />
 <meta property="og:site_name" content="SOO-LAB" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-25T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Tutorial" />
+<meta property="twitter:title" content="minSdk, targetSdk, complieSdk" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"안드로이드 개발자 기술 블로그","headline":"Tutorial","url":"http://localhost:4000/categories/tutorial/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-25T00:00:00+09:00","datePublished":"2023-10-25T00:00:00+09:00","description":"회사에서 targetsdk34 대응 작업을 진행하게 되면서 정리한 글 minSdk, targetSdk, complieSdk","headline":"minSdk, targetSdk, complieSdk","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/minsdk-targetsdk-compliesdk/"},"url":"http://localhost:4000/posts/minsdk-targetsdk-compliesdk/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Tutorial | SOO-LAB
+  <title>minSdk, targetSdk, complieSdk | SOO-LAB
   </title>
 
   <!--
@@ -109,9 +110,16 @@
   <!-- 3rd-party Dependencies -->
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- Scripts -->
@@ -127,6 +135,13 @@
 <!-- layout specified -->
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -176,9 +191,37 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/ko.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/ko.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js,npm/tocbot@4.32.2/dist/tocbot.min.js"></script>
 
 
 
@@ -186,11 +229,15 @@
 
 
 
-<script defer src="/assets/js/dist/misc.min.js"></script>
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 
@@ -320,14 +367,10 @@
           
         
           
-            <span>
-              <a href="/categories/">카테고리</a>
-            </span>
-          
         
           
             
-              <span>Tutorial</span>
+              <span>minSdk, targetSdk, complieSdk</span>
             
 
           
@@ -341,7 +384,7 @@
     </button>
 
     <div id="topbar-title">
-      카테고리
+      포스트
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -360,28 +403,131 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
 
 
 
-<article class="px-1">
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+
+  
+  
+
   
     
-
-
-
-<div id="page-category">
-  <h1 class="ps-lg-2">
-    <i class="far fa-folder-open fa-fw text-muted"></i>
-    Tutorial
-    <span class="lead text-muted ps-2">3</span>
-  </h1>
-
-  <ul class="content ps-0">
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/customize-the-favicon/">Customize the Favicon</a>
-        <span class="dash flex-grow-1"></span>
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
+
+
+
+
+
+
+
+
+
+<article class="px-1" data-toc="true">
+  <header>
+    <h1 data-toc-skip>minSdk, targetSdk, complieSdk</h1>
+    
+
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        게시
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -390,51 +536,250 @@
 
 
 
-<time class="text-muted small text-nowrap" data-ts="1565454840" data-df="YYYY/MM/DD">
-  2019/08/11
+<time data-ts="1698159600" data-df="YYYY/MM/DD" data-bs-toggle="tooltip" data-bs-placement="bottom">
+  2023/10/25
 </time>
 
-      </li>
+      </span>
+
+      <!-- lastmod date -->
+      
+
+      
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          
+
+          By
+
+          <em>
+            
+              <a href="https://github.com/tnwlsgk1002" target="_blank" rel="noopener noreferrer">Soon</a>
+            
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span class="readtime" data-bs-toggle="tooltip" data-bs-placement="bottom" title="595 단어">
+  <em>3 분</em>읽는 시간</span>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+    <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
+      <span class="label text-truncate">minSdk, targetSdk, complieSdk</span>
+      <button type="button" class="toc-trigger btn me-1">
+        <i class="fa-solid fa-list-ul fa-fw"></i>
+      </button>
+    </div>
+
+    <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
+      <span class="label ps-2 pe-1">바로가기</span>
+      <i class="fa-solid fa-angle-right fa-fw"></i>
+    </button>
+
+    <dialog id="toc-popup" class="p-0">
+      <div class="header d-flex flex-row align-items-center justify-content-between">
+        <div class="label text-truncate py-2 ms-4">minSdk, targetSdk, complieSdk</div>
+        <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
+          <i class="fas fa-close"></i>
+        </button>
+      </div>
+      <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
+    </dialog>
+  
+
+  <div class="content">
+    <p>회사에서 targetsdk34 대응 작업을 진행하게 되면서 정리한 글</p>
+<h3 id="minsdk-targetsdk-compliesdk">
+<span class="me-2">minSdk, targetSdk, complieSdk</span><a href="#minsdk-targetsdk-compliesdk" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<hr>
+
+<blockquote class="prompt-info">
+  <p><strong>minSdk</strong> : 애플리케이션을 실행하는데 필요한 최소 API 수준</p>
+</blockquote>
+
+<ul>
+  <li>만약 API 레벨이 이 속성에 지정된 값보다 낮은 경우 사용자는 애플리케이션을 설치할 수 없다.</li>
+</ul>
+
+<blockquote class="prompt-info">
+  <p><strong>targetSdk</strong> : 애플리케이션이 대상으로 하는 API 레벨</p>
+</blockquote>
+
+<ul>
+  <li>설정하지 않으면 기본 값은 minSdk 버전과 같다.</li>
+  <li>targetSdk를 올리게 되면, 최소 sdk(즉 minSdk)에서 정의된 요소만 사용하도록 제한 X, API 수준에 정의된 매니페스트 요소 혹은 동작을 사용할 수 있다.</li>
+</ul>
+
+<blockquote class="prompt-info">
+  <p><strong>complieSdk</strong> : 컴파일 시 사용할 Android API 버전</p>
+</blockquote>
+
+<ul>
+  <li>targetSdkVersion &lt;= complieSdkVersion
+    <ul>
+      <li>complieSdk를 올리면 지정 API로 <strong>컴파일</strong> 시 사용되고, targetSdk를 올리면 <strong>런타임</strong> 때 사용된다.</li>
+    </ul>
+  </li>
+  <li>target API가 컴파일이 되지 않았는데 지원은 할 수 없기 때문에 그렇다.</li>
+</ul>
+
+<blockquote class="prompt-info">
+  <p>API 레벨: Android 플랫폼 버전에서 제공하는 프레임워크 API 계정을 고유하게 식별하는 정수</p>
+</blockquote>
+
+ 	- 각 플랫폼 버전은 정확히 하나의 api를 지원하지만, 모든 이전 API 레벨(API 레벨 1까지)에 대한 지원이 암시적으로 지원된다.
+
+<h3 id="targetsdk를-올릴-때에는-언제인가">
+<span class="me-2">targetSdk를 올릴 때에는 언제인가?</span><a href="#targetsdk%EB%A5%BC-%EC%98%AC%EB%A6%B4-%EB%95%8C%EC%97%90%EB%8A%94-%EC%96%B8%EC%A0%9C%EC%9D%B8%EA%B0%80" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<ul>
+  <li>Android 버전이 높은 기기에서 최소 targetSdk가 있을 때
+    <ul>
+      <li>예를 들면 Android 15에서는 targetSdk</li>
+    </ul>
+  </li>
+  <li>Google Play 요구사항
+    <ul>
+      <li>targetSdk34 때는 타겟팅이 되어야 신규 앱 등록 or 앱 업데이트가 가능했었다. <a href="https://support.google.com/googleplay/android-developer/answer/11926878?hl=ko" target="_blank" rel="noopener noreferrer">(링크)</a>
+</li>
+    </ul>
+  </li>
+  <li>왜 올려야 할까?
+    <ul>
+      <li>새로운 버전의 Sdk가 나오면, 보안과 성능이 개선된다.</li>
+      <li>일부는 이런 지원을 명시적으로 선언한 앱에서만 적용된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="버전-대응의-의미">
+<span class="me-2">버전 대응의 의미</span><a href="#%EB%B2%84%EC%A0%84-%EB%8C%80%EC%9D%91%EC%9D%98-%EC%9D%98%EB%AF%B8" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<ul>
+  <li>Android 버전에 대응하겠다라는 것은
+    <ul>
+      <li>다양한 Android 버전에서 작동하도록 하는 것.</li>
+      <li>오래된 기기에서도 앱을 사용할 수 있도록 하는 것</li>
+    </ul>
+  </li>
+  <li>targetSdk 버전에 대응하겠다는 것은
+    <ul>
+      <li>특정 Android 버전을 목표로 개발하여 최적화 하겠다.</li>
+      <li>새로운 Android 기능 및 최적화를 활용해 최신 버전의 Android에서 정상적으로 작동하도록 하는 것.</li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/getting-started/">Getting Started</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time class="text-muted small text-nowrap" data-ts="1565355300" data-df="YYYY/MM/DD">
-  2019/08/09
-</time>
-
-      </li>
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/log/">log</a>
+      </div>
     
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/write-a-new-post/">Writing a New Post</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
-
-
-
-<time class="text-muted small text-nowrap" data-ts="1565244600" data-df="YYYY/MM/DD">
-  2019/08/08
-</time>
-
-      </li>
+    <!-- tags -->
     
-  </ul>
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a href="/tags/android/" class="post-tag no-text-decoration">android</a>
+        
+      </div>
+    
+
+    <div class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      ">
+      <div class="license-wrapper">
+        
+          
+
+          이 기사는 저작권자의 
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
+          CC BY 4.0
+        </a>
+         라이센스를 따릅니다.
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">공유하기</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=minSdk,%20targetSdk,%20complieSdk%20-%20SOO-LAB&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fminsdk-targetsdk-compliesdk%2F" target="_blank" rel="noopener noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
+    
+
+      
+
+      <a href="https://www.facebook.com/sharer/sharer.php?title=minSdk,%20targetSdk,%20complieSdk%20-%20SOO-LAB&amp;u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fminsdk-targetsdk-compliesdk%2F" target="_blank" rel="noopener noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
+    
+
+      
+
+      <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2Fminsdk-targetsdk-compliesdk%2F&amp;text=minSdk,%20targetSdk,%20complieSdk%20-%20SOO-LAB" target="_blank" rel="noopener noopener noreferrer" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
+    
+
+    <button id="copy-link" aria-label="Copy link" class="btn small" data-bs-toggle="tooltip" data-bs-placement="top" title="링크 복사하기" data-title-succeed="링크가 복사되었습니다!">
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
-  
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -808,12 +1153,243 @@
             </div>
 
             
+              
+              
+
+
+
+
+
+
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">바로가기</h2>
+    <nav id="toc"></nav>
+  </section>
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">관련된 글</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/github-action-android-firebase-app-distribution/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time data-ts="1734361200" data-df="YYYY/MM/DD">
+  2024/12/17
+</time>
+
+              <h4 class="pt-0 my-2">Github Action으로 Android Firebase App Distribution 배포 자동화 하기</h4>
+              <div class="text-muted">
+                <p>목표 : 테스트앱 배포 자동화
+
+
+매번 테스트 앱 배포할 때마다 배포하고 노티하는 번거로움을 CD로 해결해보자.
+
+
+  트리거가 발생하면 -&amp;gt; Firebase App Distribution 배포
+  성공 시 Slack 채널에 알람
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+name : App Build
+
+on : 
+    # 트리거 정의
+    
+job...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/Tasks-and-the-back-stask-task/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time data-ts="1732633200" data-df="YYYY/MM/DD">
+  2024/11/27
+</time>
+
+              <h4 class="pt-0 my-2">Tasks and the back stack : Task</h4>
+              <div class="text-muted">
+                <p>앱 내에서 화면 이동을 구현하다보면 Intent에서 Flag를 세팅해줄 일이 많이 생기는 것 같다.
+
+아무래도 사이드 프로젝트에선 화면 진입이 대부분 한 군데인 것만 경험했는데, 실무에서는 푸시나 링크 등 진입점이 다양해지고, 중간에 쌓인 화면을 모두 꺼버리는 등 스택 관리가 중요시 하게 되어 이런 일들이 발생하는 듯하다.
+
+작년 이맘때 쯤 이부분 헷...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/Photo-Picker/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time data-ts="1732374000" data-df="YYYY/MM/DD">
+  2024/11/24
+</time>
+
+              <h4 class="pt-0 my-2">Photo Picker</h4>
+              <div class="text-muted">
+                <p>전에 targetSDK 34 대응할 때 PhotoPicker 관련 히스토리 정리용.
+
+Photo Picker
+
+
+  The photo picker provides a browsable interface that presents the user with their media library (공식 문서)
+
+
+
+    
+
+
+  안드로이드에서 제공하는 사진 ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a href="/posts/customize-the-favicon/" class="btn btn-outline-primary" aria-label="이전 글">
+      <p>Customize the Favicon</p>
+    </a>
+  
+
+  
+    <a href="/posts/Photo-Picker/" class="btn btn-outline-primary" aria-label="다음 글">
+      <p>Photo Picker</p>
+    </a>
+  
+</nav>
+
             
 
             <!-- The Footer -->
@@ -1182,6 +1758,11 @@
     
 
     <!-- Embedded scripts -->
+
+    
+      
+      <!-- The comments switcher -->
+
 
     
 
