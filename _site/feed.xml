@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>SOO-LAB</title>
   <subtitle>안드로이드 개발자 기술 블로그</subtitle>
-  <updated>2025-03-15T20:29:15+09:00</updated>
+  <updated>2025-03-15T21:36:33+09:00</updated>
   <author>
     <name>숮인</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/posts/Debounce-Throttle/" rel="alternate" type="text/html" title="Debounce와 Throttle" />
     <published>2024-12-21T00:00:00+09:00</published>
   
-    <updated>2024-12-21T00:00:00+09:00</updated>
+    <updated>2025-03-15T21:17:33+09:00</updated>
   
     <id>http://localhost:4000/posts/Debounce-Throttle/</id>
     <content type="text/html" src="http://localhost:4000/posts/Debounce-Throttle/" />
@@ -44,6 +44,7 @@
 
 개발하면서 이런 고민 하게 되는데, 이때 알아보게 된 방식이 Debounce와 Throttle.
 둘이 근데 개념이 비슷한데 정확하게 차이가 뭘까? 싶어서 작성하는 글.
+
 Debounce
 
 
@@ -58,7 +59,7 @@ Debounce
 
 
   그 이전의 이벤트는 취소한다.
-  아래와 같이 flo...</summary>
+  아래와 같이 fl...</summary>
 
   </entry>
 
