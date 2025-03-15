@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>SOO-LAB</title>
   <subtitle>안드로이드 개발자 기술 블로그</subtitle>
-  <updated>2025-03-15T18:48:42+09:00</updated>
+  <updated>2025-03-15T19:46:38+09:00</updated>
   <author>
     <name>Soon</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,50 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Debounce와 Throttle</title>
+    <link href="http://localhost:4000/posts/Debounce-Throttle/" rel="alternate" type="text/html" title="Debounce와 Throttle" />
+    <published>2024-12-21T00:00:00+09:00</published>
+  
+    <updated>2024-12-21T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/Debounce-Throttle/</id>
+    <content type="text/html" src="http://localhost:4000/posts/Debounce-Throttle/" />
+    <author>
+      <name>Soon</name>
+    </author>
+
+  
+    
+    <category term="study" />
+    
+  
+
+  <summary>사용자가 버튼을 연속으로 클릭해서 연속으로 API가 호출하는 걸 어떻게 대처해야 할까?
+  검색창에 단어 입력할 때마다 검색 결과를 보여줘야 하는데 API를 자주 호출하게 되면 어쩌지?
+
+
+개발하면서 이런 고민 하게 되는데, 이때 알아보게 된 방식이 Debounce와 Throttle.
+둘이 근데 개념이 비슷한데 정확하게 차이가 뭘까? 싶어서 작성하는 글.
+Debounce
+
+
+
+
+  https://raw.githubusercontent.com/wiki/ReactiveX/RxJava/images/rx-operators/throttleFirst.png
+
+
+
+  🔥 debounce는 일정 시간동안 이벤트가 발생하지 않으면 마지막 이벤트를 방출한다.
+
+
+
+  그 이전의 이벤트는 취소한다.
+  아래와 같이 flo...</summary>
+
+  </entry>
 
   
   <entry>
@@ -205,36 +249,6 @@ minSdk, targetSdk, complieSdk
 
 
   targe...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Customize the Favicon</title>
-    <link href="http://localhost:4000/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
-    <published>2019-08-11T01:34:00+09:00</published>
-  
-    <updated>2019-08-11T01:34:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/customize-the-favicon/</id>
-    <content type="text/html" src="http://localhost:4000/posts/customize-the-favicon/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  <summary>The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
-
-Generate the favicon
-
-Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...</summary>
 
   </entry>
 
