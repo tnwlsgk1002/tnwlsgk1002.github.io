@@ -4,16 +4,16 @@
   <id>http://localhost:4000/</id>
   <title>SOO-LAB</title>
   <subtitle>안드로이드 개발자 기술 블로그</subtitle>
-  <updated>2025-03-15T20:20:20+09:00</updated>
+  <updated>2025-03-15T20:29:15+09:00</updated>
   <author>
-    <name>Soon</name>
+    <name>숮인</name>
     <uri>http://localhost:4000/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="ko-KR"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
-  <rights> © 2025 Soon </rights>
+  <rights> © 2025 숮인 </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
@@ -29,7 +29,7 @@
     <id>http://localhost:4000/posts/Debounce-Throttle/</id>
     <content type="text/html" src="http://localhost:4000/posts/Debounce-Throttle/" />
     <author>
-      <name>Soon</name>
+      <name>숮인</name>
     </author>
 
   
@@ -73,7 +73,7 @@ Debounce
     <id>http://localhost:4000/posts/github-action-android-firebase-app-distribution/</id>
     <content type="text/html" src="http://localhost:4000/posts/github-action-android-firebase-app-distribution/" />
     <author>
-      <name>Soon</name>
+      <name>숮인</name>
     </author>
 
   
@@ -133,7 +133,7 @@ on:
     <id>http://localhost:4000/posts/Tasks-and-the-back-stask-task/</id>
     <content type="text/html" src="http://localhost:4000/posts/Tasks-and-the-back-stask-task/" />
     <author>
-      <name>Soon</name>
+      <name>숮인</name>
     </author>
 
   
@@ -171,7 +171,7 @@ task ?
     <id>http://localhost:4000/posts/Photo-Picker/</id>
     <content type="text/html" src="http://localhost:4000/posts/Photo-Picker/" />
     <author>
-      <name>Soon</name>
+      <name>숮인</name>
     </author>
 
   
@@ -213,7 +213,7 @@ Photo Picker
     <id>http://localhost:4000/posts/minsdk-targetsdk-compliesdk/</id>
     <content type="text/html" src="http://localhost:4000/posts/minsdk-targetsdk-compliesdk/" />
     <author>
-      <name>Soon</name>
+      <name>숮인</name>
     </author>
 
   
