@@ -20,9 +20,9 @@ order: 4
 ## 📚 기록
 - **이전 블로그**: [Tistory](https://sjevie.tistory.com/)
 - **출퇴근길 아티클🚆**  
-  퍼블리 + 개발 아티클을 보며 지하철에서 지식 충전 중...  
-  - 📌 **퍼블리스트**: [Article Collection](https://discovered-uranium-5c7.notion.site/1ae83de6c1ea8090882cd6f719e3baf3?v=1ae83de6c1ea8130aa05000c51fa3f05&pvs=4)  
-  - 📌 **개발아티클**: [Notion](https://www.notion.so/1b383de6c1ea80888a55d370eb023388?pvs=4)
+  지하철에서 지식 충전 중...  
+  - 🔓 **퍼블리스트** (비공개): [Article Collection](https://www.notion.so/1ae83de6c1ea8090882cd6f719e3baf3?v=1ae83de6c1ea8130aa05000c51fa3f05&pvs=4)  
+  - 📌 **개발 아티클**: [Notion](https://discovered-uranium-5c7.notion.site/1b383de6c1ea80888a55d370eb023388?pvs=4)
 
 ---
 
